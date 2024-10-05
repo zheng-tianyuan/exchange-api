@@ -5,9 +5,9 @@ import (
 )
 
 func TestGetHistoryPrice(t *testing.T) {
-	exchange := NewExchange(Binance)
+	exchange := NewExchange(Bybit)
 
-	historyPrice, err := exchange.GetHistoryPrice("BTC", 1638048000)
+	historyPrice, err := exchange.GetHistoryPrice("BTC", 1727433000)
 	if err != nil {
 		t.Fatalf("failed to get history price: %v", err)
 	}

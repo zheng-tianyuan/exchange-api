@@ -12,6 +12,7 @@ const (
 	Gate
 	Bitget
 	Bybit
+	Compare
 )
 
 const (
@@ -20,6 +21,7 @@ const (
 	GateEndpoint    string = "https://api.gateio.ws"
 	BitgetEndpoint  string = "https://api.bitget.com"
 	BybitEndpoint   string = "https://api.bybit.com"
+	CompareEndpoint string = "https://min-api.cryptocompare.com"
 )
 
 type Exchange interface {
@@ -47,6 +49,10 @@ func NewExchange(exchangeType ExchangeType) Exchange {
 	case Gate:
 		return &api.GateExchange{
 			Endpoint: GateEndpoint,
+		}
+	case Compare:
+		return &api.CompareExchange{
+			Endpoint: CompareEndpoint,
 		}
 
 	default:

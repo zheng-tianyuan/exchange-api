@@ -16,7 +16,7 @@ type GateExchange struct {
 }
 
 func (e *GateExchange) GetHistoryPrice(coin string, timestamp int64) (historyPrice HistoryPrice, err error) {
-	url := fmt.Sprintf("%s?currency_pair=%s&resolution=1&from=%d", GateEndpoint+"/api/v4/spot/candlesticks", coin+"_USDT", timestamp)
+	url := fmt.Sprintf("%s?currency_pair=%s&resolution=1&from=%d", e.Endpoint+"/api/v4/spot/candlesticks", coin+"_USDT", timestamp)
 
 	resp, err := http.Get(url)
 	if err != nil {
